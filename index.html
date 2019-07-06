@@ -15,8 +15,19 @@
     <img id='bag' src ='https://png.pngtree.com/element_origin_min_pic/00/00/11/225833ee1a77ad3.jpg' onclick=equipWeapon(hero)>
   </section>
 
-  <section id='displayHero'>
+  <section id='displayHero'></section>
 
+  <section style="background-color: white">
+    <form onsubmit="RenamingHero(); return false">
+      <div>
+      <label>Rename your hero:</label>
+      <input type="text" id='newName'> 
+      </div>
+      <div>
+          <button type='default' on >Change</button>
+      </div>
+       
+    </form>
   </section>
  <!--
   <img id='inn' onclick=rest(hero)>

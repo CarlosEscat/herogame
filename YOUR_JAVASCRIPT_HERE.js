@@ -28,12 +28,14 @@ function pickUpItem(herolike = hero, weaponlike){
     return hero
 }
 
-function equipWeapon(hero){
-    if (hero.inventory == 0){
+function equipWeapon(herolike = hero){
+    if (herolike.inventory == 0){
         return undefined
     }else {
-        hero.weapon= hero.inventory[0]
+        herolike.weapon= herolike.inventory[0]
+        hero = herolike
     }
+    return hero
 }
 
 function dagger(){
@@ -49,6 +51,7 @@ function displayStats(){
     const labelWeapon = document.createElement('p')
     const labelDamage = document.createElement('p')
 
+    displayHero.style.backgroundColor = 'white'
     labelName.textContent = 'Name: ' + hero.name
     labelHealth.textContent = 'Health: ' + hero.health
     labelWeapon.textContent = 'Weapon type: ' + hero.weapon.type
@@ -58,6 +61,16 @@ function displayStats(){
     displayHero.appendChild(labelHealth)
     displayHero.appendChild(labelWeapon)
     displayHero.appendChild(labelDamage)
+}
+
+function RenamingHero(){
+    const inputField = document.getElementById('newName')
+    const nameGiven = inputField.value
+
+    hero.name = nameGiven
+    console.log(hero.name)
+    displayStats()
+
 }
 
 displayStats()
