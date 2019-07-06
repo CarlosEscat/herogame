@@ -10,8 +10,12 @@ let hero = {
     }
 }
 
-function rest(){
-
+function rest(hero){
+    if (hero.health == 10){
+        alert('Health is full')
+    }
+    hero.health = 10
+    return hero
 }
 
 function pickUpItem(){
@@ -19,5 +23,5 @@ function pickUpItem(){
 }
 
 function equipWeapon(){
-    
+
 }
