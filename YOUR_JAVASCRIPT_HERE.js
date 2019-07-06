@@ -8,6 +8,16 @@ let hero = {
         "type" : "gun",
         "damage" : 2
     }
+}
+
+function rest(){
 
 }
-console.log(hero)
+
+function pickUpItem(){
+
+}
+
+function equipWeapon(){
+    
+}
