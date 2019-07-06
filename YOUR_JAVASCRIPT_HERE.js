@@ -5,7 +5,7 @@ let hero = {
     "inventory" : [],
     "health" : 10,
     "weapon" : {
-        "type" : "gun",
+        "type" : "knife",
         "damage" : 2
     }
 }
@@ -18,10 +18,20 @@ function rest(hero){
     return hero
 }
 
-function pickUpItem(){
-
+function pickUpItem(hero, weaponlike){
+    hero.inventory.push(weaponlike)
+    
 }
 
-function equipWeapon(){
+function equipWeapon(hero){
+    if (hero.inventory == 0){
+        return undefined
+    }else {
+        hero.weapon= hero.inventory[0]
+    }
+}
 
+function dagger(){
+    let newDagger = {'type':'dagger','damage':2}
+    pickUpItem(hero, newDagger)
 }
