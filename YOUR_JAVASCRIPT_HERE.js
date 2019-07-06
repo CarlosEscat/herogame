@@ -9,6 +9,15 @@ let hero = {
         "damage" : 2
     }
 }
+let enemyBowser ={
+    "name" : 'bowser',
+    'health' : 15
+}
+
+let enemyGhost = {
+    'name' : 'Ghosts',
+    'health' : 20
+}
 
 function rest(object = hero){
     
@@ -39,6 +48,8 @@ function equipWeapon(herolike = hero){
 }
 
 function dagger(){
+    const picture = document.getElementById('dagger')
+    picture.style.visibility= 'hidden'
     let newDagger = {'type':'dagger','damage':2}
     pickUpItem(hero, newDagger)
 }
@@ -71,6 +82,85 @@ function RenamingHero(){
     console.log(hero.name)
     displayStats()
 
+}
+
+function slingshot(){
+    const picture = document.getElementById('slingshot')
+    picture.style.visibility= 'hidden'
+    let newSlingshot = {'type':'slingshot','damage':1}
+    pickUpItem(hero, newSlingshot)
+}
+
+function lightsaber(){
+    const picture = document.getElementById('lightsaber')
+    picture.style.visibility= 'hidden'
+    let newLight = {'type':'lightsaber','damage':4}
+    pickUpItem(hero, newLight)
+}
+
+function fightBowser(){
+
+    const displayFight = document.getElementById('fight')
+    const picture = document.getElementById('ghost')
+    const enemy = document.createElement('p')
+    const enemyHealth = document.createElement('p')
+    const you = document.createElement('p')
+    const youHealth = document.createElement('p')
+    const hitEnemy = document.createElement('button')
+
+    picture.style.visibility= 'hidden'
+    displayFight.style.backgroundColor = 'white'
+    enemy.textContent = 'Bowser'
+    enemyHealth.textContent ='Health ' + enemyBowser.health
+    enemy.style.color = 'red'
+    enemyHealth.style.color = 'red'
+    you.textContent = hero.name
+    youHealth.textContent = 'Health ' + hero.health
+    you.style.color = 'blue'
+    youHealth.style.color = 'blue'
+    hitEnemy.textContent = 'Strike'
+
+    displayFight.appendChild(enemy)
+    displayFight.appendChild(enemyHealth)
+    displayFight.appendChild(you)
+    displayFight.appendChild(youHealth)
+    displayFight.appendChild(hitEnemy)
+
+}
+
+function fightGhost(){
+
+    const displayFight = document.getElementById('fight')
+    const picture = document.getElementById('bowser')
+    const enemy = document.createElement('p')
+    const enemyHealth = document.createElement('p')
+    const you = document.createElement('p')
+    const youHealth = document.createElement('p')
+    const hitEnemy = document.createElement('button')
+
+    picture.style.visibility= 'hidden'
+    displayFight.style.backgroundColor = 'white'
+    enemy.textContent = 'Ghosts'
+    enemyHealth.textContent ='Health ' + enemyGhost.health
+    enemy.style.color = 'red'
+    enemyHealth.style.color = 'red'
+    you.textContent = hero.name
+    youHealth.textContent = 'Health ' + hero.health
+    you.style.color = 'blue'
+    youHealth.style.color = 'blue'
+    hitEnemy.textContent = 'Strike'
+
+    displayFight.appendChild(enemy)
+    displayFight.appendChild(enemyHealth)
+    displayFight.appendChild(you)
+    displayFight.appendChild(youHealth)
+    displayFight.appendChild(hitEnemy)
+    hitEnemy.onclick(strike())
+}
+
+function strike(){
+    enemyGhost.health = enemyGhost.health - hero.weapon.damage
+    console.log(enemyGhost.health)
 }
 
 displayStats()
